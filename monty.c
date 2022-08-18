@@ -48,7 +48,7 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 
 int main(int ac, char **av)
 {
-	unsigned int ln = 1;
+	unsigned int ln = 0;
 	FILE *fptr;
 	char *line = NULL, *tok;
 	size_t len = 0;
