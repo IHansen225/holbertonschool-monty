@@ -1,5 +1,13 @@
 #include "monty.h"
 
+/**
+ * pall - prints all elements of the stack
+ * 
+ * @stack: the stack pointer
+ * @line_number: the line number
+ * Return: void
+ */
+
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *p = *stack;
@@ -15,6 +23,14 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * pint - prints top element of stack
+ * 
+ * @stack: the stack pointer
+ * @line_number: the line number
+ * Return: void
+ */
+
 void pint(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
@@ -26,6 +42,14 @@ void pint(stack_t **stack, unsigned int line_number)
 	else
 		printf("%d\n", (*stack)->n);
 }
+
+/**
+ * pop - pops an element from the stack
+ * 
+ * @stack: the stack pointer
+ * @line_number: the line number
+ * Return: void
+ */
 
 void pop(stack_t **stack, unsigned int line_number)
 {
@@ -41,6 +65,14 @@ void pop(stack_t **stack, unsigned int line_number)
 	*stack = p, free(d);
 }
 
+/**
+ * swap - swaps last two elements from stack
+ * 
+ * @stack: the stack pointer
+ * @line_number: the line number
+ * Return: void
+ */
+
 void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *p = *stack;
@@ -55,6 +87,14 @@ void swap(stack_t **stack, unsigned int line_number)
 	p->next = d->next, d->next = p;
 	*stack = d;
 }
+
+/**
+ * add - adds the last two elements from the stack
+ * 
+ * @stack: the stack pointer
+ * @line_number: the line number
+ * Return: void
+ */
 
 void add(stack_t **stack, unsigned int line_number)
 {
