@@ -93,7 +93,7 @@ int main(int ac, char **av)
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction pushe\n", ln);
-			exit(EXIT_FAILURE)
+			exit(EXIT_FAILURE);
 		}
     }
 	free_dlistint(*stack);
