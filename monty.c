@@ -89,7 +89,7 @@ int main(int ac, char **av)
 		ln++;
 		tok = strtok(line, " \n");
 		if ((*get_op_func(tok)))
-			*get_op_func(tok))(stack, ln);
+			(*get_op_func(tok))(stack, ln);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction pushe\n", ln);
