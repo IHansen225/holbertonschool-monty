@@ -1,18 +1,5 @@
 #include "monty.h"
 
-void free_dlistint(stack_t *head)
-{
-	stack_t *p_elem, *elem;
-
-	elem = head;
-	while (elem)
-	{
-		p_elem = elem;
-		elem = elem->next;
-		free(p_elem);
-	}
-}
-
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newelement;
@@ -94,7 +81,6 @@ int main(int ac, char **av)
 			exit(EXIT_FAILURE);
 		}
     }
-	free_dlistint(*stack);
     fclose(fptr);
     if (line)
         free(line);
