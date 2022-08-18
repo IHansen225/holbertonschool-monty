@@ -86,8 +86,15 @@ int main(int ac, char **av)
 	}
     while ((getline(&line, &len, fptr)) != -1) 
 	{
+		ln++;
 		tok = strtok(line, " \n");
-		(*get_op_func(tok))(stack, ln);
+		if ((*get_op_func(tok)))
+			*get_op_func(tok))(stack, ln);
+		else
+		{
+			fprintf(stderr, "L%d: unknown instruction pushe\n", ln);
+			exit(EXIT_FAILURE)
+		}
     }
 	free_dlistint(*stack);
     fclose(fptr);
