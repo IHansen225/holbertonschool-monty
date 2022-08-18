@@ -2,7 +2,7 @@
 
 /**
  * free_stack - free a stack
- * 
+ *
  * @head: the stack pointer
  * Return: void
  */
@@ -22,7 +22,7 @@ void free_stack(stack_t *head)
 
 /**
  * push - pushes an element onto the stack
- * 
+ *
  * @stack: the stack pointer
  * @line_number: the line number
  * Return: void
@@ -69,7 +69,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 /**
  * nop - does nothing
- * 
+ *
  * @stack: the stack pointer
  * @line_number: the line number
  * Return: void
@@ -82,7 +82,7 @@ void nop(stack_t **stack, unsigned int line_number)
 
 /**
  * get_op_func - function selector for monty main
- * 
+ *
  * @s: input line
  * Return: void
  */
@@ -108,7 +108,7 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 
 /**
  * main - main monty function
- * 
+ *
  * @ac: argument count
  * @av: argument array
  * Return: exit status

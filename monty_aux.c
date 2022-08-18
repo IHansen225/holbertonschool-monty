@@ -2,7 +2,7 @@
 
 /**
  * pall - prints all elements of the stack
- * 
+ *
  * @stack: the stack pointer
  * @line_number: the line number
  * Return: void
@@ -25,7 +25,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 /**
  * pint - prints top element of stack
- * 
+ *
  * @stack: the stack pointer
  * @line_number: the line number
  * Return: void
@@ -45,7 +45,7 @@ void pint(stack_t **stack, unsigned int line_number)
 
 /**
  * pop - pops an element from the stack
- * 
+ *
  * @stack: the stack pointer
  * @line_number: the line number
  * Return: void
@@ -67,7 +67,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 /**
  * swap - swaps last two elements from stack
- * 
+ *
  * @stack: the stack pointer
  * @line_number: the line number
  * Return: void
@@ -90,7 +90,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 /**
  * add - adds the last two elements from the stack
- * 
+ *
  * @stack: the stack pointer
  * @line_number: the line number
  * Return: void
