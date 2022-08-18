@@ -28,17 +28,13 @@ void push(stack_t **stack, unsigned int line_number)
 
 void nop(stack_t **stack, unsigned int line_number)
 {
-	(void) stack, (void) line_number;
+	(void)stack, (void)line_number;
 }
 
 void (*get_op_func(char *s))(stack_t **, unsigned int)
 {
 	instruction_t ops[] = {
-		{"push", push}, {"pall", pall},
-		{"pint", pint}, {"swap", swap},
-		{"pop", pop}, {"add", add},
-		{"nop", nop}, {NULL, NULL}
-	};
+		{"push", push}, {"pall", pall}, {"pint", pint}, {"swap", swap}, {"pop", pop}, {"add", add}, {"nop", nop}, {NULL, NULL}};
 	int i = 0;
 
 	while (ops[i].opcode != NULL)
@@ -53,36 +49,35 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 int main(int ac, char **av)
 {
 	unsigned int ln = 1;
-    FILE *fptr;
-    char *line = NULL, *tok;
-    size_t len = 0;
-	stack_t **stack;
+	FILE *fptr;
+	char *line = NULL, *tok;
+	size_t len = 0;
+	stack_t *stack = NULL;
 
-	*stack = NULL;
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-    if (!(fptr = fopen(av[1], "r")))
+	if (!(fptr = fopen(av[1], "r")))
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
-        exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
-    while ((getline(&line, &len, fptr)) != -1) 
+	while ((getline(&line, &len, fptr)) != -1)
 	{
 		ln++;
 		tok = strtok(line, " \n");
 		if ((*get_op_func(tok)))
-			(*get_op_func(tok))(stack, ln);
+			(*get_op_func(tok))(&stack, ln);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", ln, tok);
 			exit(EXIT_FAILURE);
 		}
-    }
-    fclose(fptr);
-    if (line)
-        free(line);
-    exit(EXIT_SUCCESS);
+	}
+	fclose(fptr);
+	if (line)
+		free(line);
+	exit(EXIT_SUCCESS);
 }
