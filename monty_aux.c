@@ -4,13 +4,15 @@ void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *p = *stack;
 
+	(void) line_number;
 	if (!(*stack))
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
 	}
-	for (; p != NULL; p = p->next)
-		printf("%d\n", p->n);
+	else
+	{
+		for (; p != NULL; p = p->next)
+			printf("%d\n", p->n);
+	}
 }
 
 void pint(stack_t **stack, unsigned int line_number)
