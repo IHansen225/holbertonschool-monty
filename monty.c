@@ -92,7 +92,7 @@ int main(int ac, char **av)
 			(*get_op_func(tok))(stack, ln);
 		else
 		{
-			fprintf(stderr, "L%d: unknown instruction pushe\n", ln);
+			fprintf(stderr, "L%d: unknown instruction %s\n", ln, tok);
 			exit(EXIT_FAILURE);
 		}
     }
