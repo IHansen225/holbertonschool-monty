@@ -86,12 +86,17 @@ int main(int ac, char **av)
 	{
 		ln++;
 		tok = strtok(line, " \n");
-		if ((*get_op_func(tok)))
-			(*get_op_func(tok))(&stack, ln);
+		if (tok == NULL)
+			continue;
 		else
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", ln, tok);
-			exit(EXIT_FAILURE);
+			if ((*get_op_func(tok)))
+			(*get_op_func(tok))(&stack, ln);
+			else
+			{
+				fprintf(stderr, "L%d: unknown instruction %s\n", ln, tok);
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
 	fclose(fptr);
