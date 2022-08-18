@@ -4,7 +4,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newelement;
 	char *n_num;
-	int not_num;
+	int i = 0;
 
 	newelement = malloc(sizeof(stack_t));
 	if (newelement == NULL)
@@ -17,13 +17,24 @@ void push(stack_t **stack, unsigned int line_number)
 	n_num = strtok(NULL, " \n");
 	if (n_num != NULL)
 	{
-		
+		for (; n_num[i]; i++)
+		{
+			printf("%c\n", n_num[i]);
+			if ((n_num[i] > 47) && (n_num[i] < 58))
+				continue;
+			else
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);		
+			}
+		}
 	}
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	newelement->n = atoi(n_num);
 	if (newelement->next != NULL)
 		newelement->next->prev = newelement;
 	*stack = newelement;
@@ -37,7 +48,11 @@ void nop(stack_t **stack, unsigned int line_number)
 void (*get_op_func(char *s))(stack_t **, unsigned int)
 {
 	instruction_t ops[] = {
-		{"push", push}, {"pall", pall}, {"pint", pint}, {"swap", swap}, {"pop", pop}, {"add", add}, {"nop", nop}, {NULL, NULL}};
+		{"push", push}, {"pall", pall}, 
+		{"pint", pint}, {"swap", swap}, 
+		{"pop", pop}, {"add", add}, 
+		{"nop", nop}, {NULL, NULL}
+		};
 	int i = 0;
 
 	while (ops[i].opcode != NULL)
