@@ -115,6 +115,6 @@ int main(int ac, char **av)
 	if (line)
 		free(line);
 	if (stack)
-		free(stack);
+		free_stack(stack);
 	exit(EXIT_SUCCESS);
 }
