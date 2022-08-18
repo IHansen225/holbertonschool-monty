@@ -1,5 +1,18 @@
 #include "monty.h"
 
+void free_stack(stack_t *head)
+{
+	stack_t *p_elem, *elem;
+
+	elem = head;
+	while (elem)
+	{
+		p_elem = elem;
+		elem = elem->next;
+		free(p_elem);
+	}
+}
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newelement;
@@ -101,5 +114,7 @@ int main(int ac, char **av)
 	fclose(fptr);
 	if (line)
 		free(line);
+	if (stack)
+		free(stack);
 	exit(EXIT_SUCCESS);
 }
