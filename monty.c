@@ -37,7 +37,7 @@ void push(stack_t **stack, unsigned int line_number)
 			else
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
-				exit(EXIT_FAILURE);		
+				exit(EXIT_FAILURE);
 			}
 		}
 	}
@@ -60,9 +60,9 @@ void nop(stack_t **stack, unsigned int line_number)
 void (*get_op_func(char *s))(stack_t **, unsigned int)
 {
 	instruction_t ops[] = {
-		{"push", push}, {"pall", pall}, 
-		{"pint", pint}, {"swap", swap}, 
-		{"pop", pop}, {"add", add}, 
+		{"push", push}, {"pall", pall},
+		{"pint", pint}, {"swap", swap},
+		{"pop", pop}, {"add", add},
 		{"nop", nop}, {NULL, NULL}
 		};
 	int i = 0;
@@ -89,7 +89,8 @@ int main(int ac, char **av)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	if (!(fptr = fopen(av[1], "r")))
+	fptr = fopen(av[1], "r");
+	if (!fptr)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);

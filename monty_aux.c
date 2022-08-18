@@ -53,7 +53,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 	d->prev = NULL, p->prev = d;
 	p->next = d->next, d->next = p;
-	*stack = d;	
+	*stack = d;
 }
 
 void add(stack_t **stack, unsigned int line_number)
@@ -67,7 +67,7 @@ void add(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	sum = (p->n)+(d->n);
+	sum = (p->n) + (d->n);
 	pop(stack, line_number), pop(stack, line_number);
 	newelement = malloc(sizeof(stack_t));
 	if (newelement == NULL)
