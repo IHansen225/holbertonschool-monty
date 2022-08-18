@@ -54,7 +54,6 @@ void pint(stack_t **stack, unsigned int line_number)
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pr, *aux;
-	unsigned int i = 0;
 
 	pr = *stack;
 	if (*stack == NULL)
