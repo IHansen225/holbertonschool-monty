@@ -74,7 +74,6 @@ int main(int ac, char **av)
     size_t len = 0;
 	stack_t **stack;
 
-	*stack = NULL;
 	if (ac != 2)
 	{
 		printf("USAGE: monty file");
