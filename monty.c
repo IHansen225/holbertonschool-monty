@@ -72,7 +72,7 @@ int main(int ac, char **av)
     FILE *fptr;
     char *line = NULL, *tok;
     size_t len = 0;
-	stack_t **stack;
+	stack_t **stack = NULL;
 
 	if (ac != 2)
 	{
