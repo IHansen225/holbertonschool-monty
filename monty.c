@@ -57,10 +57,7 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 	while (ops[i].opcode != NULL)
 	{
 		if (strcmp(ops[i].opcode, s) == 0)
-		{
-			printf("%s\n", ops[i].opcode);
 			return (ops[i].f);
-		}
 		i++;
 	}
 	return (NULL);
@@ -72,7 +69,7 @@ int main(int ac, char **av)
     FILE *fptr;
     char *line = NULL, *tok;
     size_t len = 0;
-	stack_t **stack = NULL;
+	stack_t **stack;
 
 	*stack = NULL;
 	if (ac != 2)
