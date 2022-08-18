@@ -76,12 +76,12 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		printf("USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file");
 		exit(EXIT_FAILURE);
 	}
     if (!(fptr = fopen(av[1], "r")))
 	{
-		printf("Error: Can't open file %s\n", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
         exit(EXIT_FAILURE);
 	}
     while ((getline(&line, &len, fptr)) != -1) 
