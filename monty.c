@@ -4,6 +4,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newelement;
 	char *n_num;
+	int not_num;
 
 	newelement = malloc(sizeof(stack_t));
 	if (newelement == NULL)
@@ -15,7 +16,9 @@ void push(stack_t **stack, unsigned int line_number)
 	newelement->prev = NULL;
 	n_num = strtok(NULL, " \n");
 	if (n_num != NULL)
-		newelement->n = atoi(n_num);
+	{
+		
+	}
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
