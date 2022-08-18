@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		for (; n_num[i]; i++)
 		{
-			if ((n_num[i] > 47) && (n_num[i] < 58))
+			if (((n_num[i] > 47) && (n_num[i] < 58)) || (n_num[i] == '-'))
 				continue;
 			else
 			{
