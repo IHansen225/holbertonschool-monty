@@ -119,14 +119,19 @@ void swap(stack_t **stack, unsigned int line_number)
 void add(stack_t **stack, unsigned int line_number)
 {
 	int sum;
-	stack_t *p = *stack, *newelement;
-	stack_t *d = (*stack)->next;
+	stack_t *p, *newelement, *d;
 
-	if ((!(*stack)) || ((*stack)->next == NULL))
+	if (!(*stack))
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	else if ((*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	p = *stack, d = (*stack)->next;
 	sum = (p->n) + (d->n);
 	pop(stack, line_number), pop(stack, line_number);
 	newelement = malloc(sizeof(stack_t));
