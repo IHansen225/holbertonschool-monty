@@ -1,9 +1,10 @@
-## Repository: C - Stacks, Queues - LIFO, FIFO
+## Repository: C - Stacks, Queues - LIFO, FIFO (Monty)
 ### Authors: [@Ihansen225](https://www.github.com/Ihansen225)
 Monty project. Pre-python exercises.
 ### Tools used:
 - [Vim editor for Linux](https://www.vim.org/)
 - [Gcc compiler](https://gcc.gnu.org/) (using `-Wall -Werror -Wextra -pedantic -std=gnu89`)
+- Monty 0.98
 
 ### Learning objectives:
 #### General
